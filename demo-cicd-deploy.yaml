@@ -2,6 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
   namespace: demo
   name: demo-cicd
   labels:
@@ -39,7 +41,7 @@ spec:
     app: demo-cicd
   type: ClusterIP
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   namespace: demo
